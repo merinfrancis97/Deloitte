@@ -1,0 +1,20 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class Pretest{
+   public static void main(String[] args){
+                 String s;
+                 Scanner sc=new Scanner(System.in);
+                  s=sc.nextLine();// input string from user
+                 int count=0;//initialise count
+                 String rev=s.reverse(); //reverse string using inbuilt function
+                 System.out.println(rev);//print reverse
+               ch[] array1=s.tocharArray();//convert string to character array
+                 for(int i=0;i<array1.length;i++){
+                       if(ch[i]=='a' ||ch[i]=='e' ||ch[i]=='i' ||ch[i]=='o' ||ch[i]=='u')//checking condition
+                            count++;
+                  }
+           System.out.println(count);//print count of vowels
+}
+}
+                     
