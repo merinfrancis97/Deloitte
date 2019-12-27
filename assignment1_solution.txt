@@ -1,0 +1,28 @@
+ 
+ 
+create table Employee(
+EmployeeID integer,
+
+EmployeeName varchar(20),
+
+EmployeeAddress varchar(20),
+
+DOB date,
+
+DOJ date,
+
+Salary integer);
+insert into Employee values(101,'kar','chennai','08-01-1996','06-12-2018',6700);
+insert into Employee values(102,'mary','chennai','08-01-1997','06-12-2018',8600);
+insert into Employee values(103,'lalitha','delhi','08-01-1996','06-12-2017',876700);
+insert into Employee values(104,'saho','pune','08-01-1995','06-12-2018',23400);
+insert into Employee values(105,'pos','mumbai','08-01-1996','06-12-2019',800);
+
+
+select * from Employee;
+select EmployeeName from Employee where salary>20000;
+select EmployeeName from Employee where EmployeeAddress like '%a' or EmployeeAddress like '%r'or EmployeeAddress like '%a';
+update Employee set salary=salary+20*salary/100;
+delete from Employee where salary<5000
+alter table employee add(Email varchar(20));
+update employee set email='dsddfjf@gmail.com' where employeeid=106;
