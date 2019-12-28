@@ -1,0 +1,2 @@
+create table citizen(CID integer,CitizenDOB date not null,CitizenDOD date not null,constraint ch1 check(CitizenDOD>=CitizenDOB));
+select * from citizen;
