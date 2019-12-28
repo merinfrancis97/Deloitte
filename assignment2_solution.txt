@@ -1,1 +1,0 @@
-create table citizen(CID integer,CitizenDOB date not null,CitizenDOD date not null);
