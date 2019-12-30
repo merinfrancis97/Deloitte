@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>customer</title>
+
+<script type="text/javascript">
+function validation(){
+	//var m=document.getElementById("hello");
+	//var errormessage=document.getElementById("errormessage");
+	//m.innerText="welcome";
+	
+	var cid=document.getElementById("customerid").value;
+	var cname=document.getElementById("customername").value;
+	var caddress=document.getElementById("customeraddress").value;
+	var camount=document.getElementById("billamount").value;
+	var useridError=document.getElementById("useridError");
+	var usernameError=document.getElementById("usernameError");
+	var useraddressError=document.getElementById("useraddressError");
+	var useridError=document.getElementById("useridError");
+	
+	var display=document.getElementById("display");
+	
+	
+	if(cid.length==0)
+		useridError.innerHTML="<font color='red'>please enter the customer id</font>";
+		return false;
+	else if(cid.length!=5)
+		useridError.innerHTML="<font color='red'>customerId must be of length 5</font>";
+		return false;
+	else if(cname.length==0){
+		useridError.innerHTML="";
+		usernameError.innerHTML="<font color='red'>please enter the name</font>";
+		return false;
+	}
+		else if(caddress.length==0){
+			useridError.innerHTML="";	
+	usernameError.innerHTML="";
+			useraddressError.innerHTML="<font color='red'>please enter the address</font>";
+			return false;
+		}else if(caddress!='pune'&&caddress!='delhi'&&caddress!='mumbai'){
+			useridError.innerHTML="";
+		usernameError.innerHTML="";
+		useraddressError.innerHTML="<font color='red'>Customer Address should be Pune,Mumbai,Delhi</font>"
+			return false;
+		}else if(camount.length==0){
+			useridError.innerHTML="";
+			usernameError.innerHTML="";
+			useraddressError.innerHTML="";
+		billamountError.innerHTML="<font color='red'>please enter the amount</font>";
+}else{
+	alert("Congrats, Your customer saved successfully");
+	display.innerHTML="<font color='green'>Your details are : <font><br/>"+"Customer Id : "+cid+"<br/>Customer Name : "+cname+"</br>Customer Address : "+caddress+"<br/>Bill amount : "+camount;
+}
+	
+	//alert(cid);
+}
+</script>
+</head>
+
+<body>
+
+<form action="about.html" onsubmit="return validate()">
+<h1 align="center">form</h1>
+<table align="center" cellspacing="10" cellpadding="10">
+    <tr>
+       <td>Customer Id</td>
+        <td><input type="text" name="username" id="customerid"></td>
+        <td><div id="useridError"></div>
+    </tr>
+   
+   
+   
+   
+    <tr>
+       <td>Customer Name</td>
+        <td><input type="text" name="username" id="customername"></td>
+        <td><div id="usernameError"></div>
+    </tr>
+     <tr>
+       <td>Customer Address</td>
+        <td><input type="text" name="username" id="customeraddress"></td>
+        <td><div id="useraddressError"></div>
+    </tr>
+     <tr>
+       <td>Bill Amount</td>
+        <td><input type="text" name="username" id="billamount"></td>
+        <td><div id="billamountError"></div>
+    </tr>
+    <tr>
+   
+     <tr>
+     <td><input type="submit" value="Ssubmit"></td>
+      <td><input type="button" value="validate" onclick="validation()"></td>
+     <td><input type="reset" value="clear"></td>
+     </tr>
+     </table>
+     <div id=display><</div>
+</form>
+</body>
+</html>
