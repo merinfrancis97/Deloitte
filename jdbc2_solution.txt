@@ -1,0 +1,27 @@
+package jdbc;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class InsertData {
+	public static void main(String[] args) throws SQLException {
+		Connection connection=DBConnection.makeConnection();
+	Product p=new Product();
+	p.accept();
+	PreparedStatement stmt=connection.prepareStatement("insert into hr.Product values(?,?,?,?)");
+		stmt.setInt(1,p.getProductId());
+		stmt.setString(2,p.getProductname());
+	     stmt.setInt(3,p.getQoh());
+	    stmt.setInt(4, p.getPrice());
+	
+	stmt.execute();
+	System.out.println("table updated");
+	
+	
+	
+	}
+	
+	
+}
