@@ -1,0 +1,54 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class UpdateData {
+	public static void main(String[] args) throws SQLException {
+		Connection connection=DBConnection.makeConnection();
+		Scanner sc=new Scanner(System.in);
+		int id;
+		System.out.println("enter the customerid to update");
+		id=sc.nextInt();
+		Product p=new Product();
+		p.accept();
+		
+		Statement stmt=connection.createStatement();
+		
+		String query="select * from hr.Product";
+		
+		ResultSet res=stmt.executeQuery(query);
+        int flag=0;
+		String str;
+       	while(res.next())
+       	{
+       		
+       	 if(res.getInt(1)==id)
+         	flag=1;
+         
+       
+         }
+       if(flag==0) 
+        		System.out.println("data not found");
+        		
+       else {
+        		
+        System.out.println("data found");
+        PreparedStatement stmt2=connection.prepareStatement("update hr.product set productname=?,qoh=?,price=? where productid=?");
+    	
+		
+		stmt2.setString(2,p.getProductname());
+		stmt2.setInt(3, p.getQoh());
+		stmt2.setInt(4, p.getPrice());
+		stmt2.setInt(1,p.getProductId());
+		stmt2.executeUpdate();
+		System.out.println("data updated");
+     		
+        	}
+	}
+
+}
